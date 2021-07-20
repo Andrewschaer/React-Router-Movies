@@ -4,8 +4,9 @@ import axios from 'axios';
 
 
 
-import SavedList from './Movies/SavedList';
-import MovieList from  './Movies/MovieList'
+import SavedList from './Movies/SavedList.js';
+import MovieList from  './Movies/MovieList.js';
+import Movie from './Movies/Movie.js'
 
 export default function App () {
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
@@ -32,10 +33,14 @@ export default function App () {
   return (
     <div>
       <SavedList list={[ /* This is stretch */]} />
-
-      <Route path='/'>
-        <MovieList movies={movieList}/>
-      </Route>
+      <Switch>
+        <Route path='/'>
+          <MovieList movies={movieList}/>
+        </Route>
+        <Route path='/movies/:id'>
+          <Movie/>
+        </Route>
+      </Switch>
       {/* <Route>
       </Route> */}
     </div>
