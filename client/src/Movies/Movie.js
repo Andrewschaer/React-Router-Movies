@@ -7,7 +7,6 @@ export default function Movie(props) {
   
   const params = useParams()
   const { id } = params
-  console.log('this is what params.id is', params.id)
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
 
   useEffect(() => {
@@ -15,7 +14,6 @@ export default function Movie(props) {
       .get(`http://localhost:5000/api/movies/${id}`) // Study this endpoint with Postman
       .then(response => {
         setMovie(response.data);
-        console.log('id equals', id, 'response.data equals', response.data)
         // Study this response with a breakpoint or log statements
         // and set the response data as the 'movie' slice of state
       })
